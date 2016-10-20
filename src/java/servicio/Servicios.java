@@ -14,6 +14,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import model.Usuario;
 
@@ -37,13 +38,16 @@ public class Servicios {
     /**
      * Retrieves representation of an instance of servicio.prueba
      *
+     * @param key
+     * @param user
+     * 
      * @return an instance of java.lang.String
      */
     @GET
     @Path("/prueba")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getJson() {
-        return "{prueba:valor}";
+    public String getJson(@QueryParam("key") String key,@QueryParam("user") String user ) {
+        return "{"+key+":"+user+":valor}";
     }
 
     @GET
